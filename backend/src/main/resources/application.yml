@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: back-end
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/SBA301
+    username: root
+    password: sa123
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8080
