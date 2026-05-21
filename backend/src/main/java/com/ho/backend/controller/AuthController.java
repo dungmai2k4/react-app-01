@@ -2,6 +2,7 @@ package com.ho.backend.controller;
 
 import com.ho.backend.dto.auth.AuthRequest;
 import com.ho.backend.dto.auth.AuthResponse;
+import com.ho.backend.dto.auth.RegisterRequest;
 import com.ho.backend.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class AuthController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthResponse> register(@Valid @RequestBody AuthRequest request) {
+    public ResponseEntity<AuthResponse> register(@Valid @RequestBody RegisterRequest request) {
 
         AuthResponse response = userService.register(request);
 

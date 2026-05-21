@@ -24,6 +24,11 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(MismatchException.class)
+    public ResponseEntity<?> handleMismatchException(MismatchException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+    }
+
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<?> handleNotFound(ResourceNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)

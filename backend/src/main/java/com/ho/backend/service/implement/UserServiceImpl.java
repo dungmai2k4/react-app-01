@@ -2,6 +2,7 @@ package com.ho.backend.service.implement;
 
 import com.ho.backend.dto.auth.AuthRequest;
 import com.ho.backend.dto.auth.AuthResponse;
+import com.ho.backend.dto.auth.RegisterRequest;
 import com.ho.backend.entity.User;
 import com.ho.backend.exception.InvalidCredentialsException;
 import com.ho.backend.exception.MismatchException;
@@ -21,7 +22,7 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public AuthResponse register(AuthRequest request) {
+    public AuthResponse register(RegisterRequest request) {
 
         if (userRepository.existsByUserName(request.getUserName())) {
             throw new UnauthorizedException("Username already exists");
