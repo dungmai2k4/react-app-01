@@ -100,12 +100,14 @@ export default function AuthModal({ show, handleClose }) {
           <small className="text-danger">{errors.password}</small>
         )}
 
-        <Button onClick={handleSubmit} className="w-100 mt-3">
+        <Button onClick={handleSubmit} variant={isLogin ? "success" : "primary"} className="w-100 mt-3">
           {isLogin ? "Login" : "Register"}
         </Button>
 
-        <p
-          style={{ cursor: "pointer", textAlign: "center", marginTop: 10 }}
+        <Button
+          variant="link"
+          className="text-decoration-underline mt-2 p-0"
+          style={{ cursor: "pointer" }}
           onClick={() => {
             setIsLogin(!isLogin);
             setErrors({});
@@ -113,7 +115,7 @@ export default function AuthModal({ show, handleClose }) {
           }}
         >
           {isLogin ? "Go Register" : "Go Login"}
-        </p>
+        </Button>
       </Modal.Body>
     </Modal>
   );
